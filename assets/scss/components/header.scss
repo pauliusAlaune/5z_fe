@@ -1,0 +1,330 @@
+.header {
+    position: fixed;
+    top: 108px;
+    left: 115px;
+    top: 10%;
+    left: 6%;
+    z-index: 100;
+    @include responsive(1280px)
+    {
+        top: 68px;
+        left: 80px;
+    }
+    @include responsive(1024px)
+    {
+        top: 40px;
+        left: 40px;
+    }
+    @include responsive(767px)
+    {
+        position: relative;
+        top: unset;
+        left: unset;
+    }
+    &__holder {
+        @include responsive(767px)
+        {
+            width: 100vw;
+            height: 100vh;
+            position: absolute;
+            top: 0;
+            left: 0;
+            transform: translateX(-110vw);
+            transition: all 0.8s ease;
+            &.open {
+                transform: translateX(0vw);
+            }
+        }
+    }
+    &__nav {
+        @include responsive(767px)
+        {
+            position: relative;
+            z-index: 120;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+            transform: translateX(-120%);
+            transition: all 0.8s ease;
+            &.open {
+                transform: translateX(0%);
+            }
+        }
+        &__navList {
+            &--item {
+                color: #ffffff;
+                font-size: 18px;
+                font-weight: $fw4;
+                line-height: 28px;
+                text-transform: uppercase;
+                cursor: pointer;
+                margin-bottom: 5px;
+                @include responsive(767px)
+                {
+                    font-size: 31px;
+                    line-height: 1.4;
+                    text-align: center;
+                }
+            }
+        }
+    }
+}
+.overlayBg {
+    display: none;
+    width: 100vw;
+    height: 100vh;
+    background-color: RGBA(17, 18, 46, .89);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    transform: translateX(-110vw);
+    transition: all 0.8s ease;
+    &.visi {
+        display: block;
+    }
+    &.open {
+        transform: translateX(0vw);
+    }
+}
+.navToggle {
+    display: none;
+    width: 22px;
+    height: 22px;
+    top: 30px;
+    left: 30px;
+    position: absolute;
+    cursor: pointer;
+    transform: rotate(0deg);
+    transition: all 0.5s ease;
+    z-index: 300;
+    @include responsive(767px)
+    {
+        display: block;
+    }
+    &.disable {
+        pointer-events: none;
+    }
+    &--part {
+        position: absolute;
+        width: 5px;
+        height: 5px;
+        border-radius: 1px;
+        background-color: #ed1c42;
+        transition: all 0.5s ease;
+        @include responsive(767px)
+        {
+
+        }
+    }
+    .navToggle--part.topLeft {
+        top: 0;
+        left: 0;
+        transition: all 0.2s ease;
+
+    }
+    .navToggle--part.topCenter {
+        top: 0;
+        left: 8px;
+        transition: all 0.5s ease;
+        @include responsive(767px)
+        {
+
+        }
+    }
+    .navToggle--part.topRight {
+        top: 0;
+        left: 30px;
+        transition: all 0.2s ease;
+        @include responsive(767px)
+        {
+            top: 0;
+            left: 16px;
+        }
+    }    
+    .navToggle--part.centerLeft {
+        top: 15px;
+        left: 0;
+        transition: all 0.5s ease;
+        @include responsive(767px)
+        {
+            top: 8px;
+            left: 0;
+        }
+    }
+    .navToggle--part.centerCenter {
+        top: 15px;
+        left: 15px; 
+        transition: all 0.2s ease;
+        @include responsive(767px)
+        {
+            top: 8px;
+            left: 8px;
+        }
+    }
+    .navToggle--part.centerRight {
+        top: 15px;
+        left: 30px;
+        transition: all 0.2s ease;
+        @include responsive(767px)
+        {
+            top: 8px;
+            left: 16px;
+        }
+    }    
+    .navToggle--part.bottomLeft {
+        top: 30px;
+        left: 0;
+        transition: all 0.2s ease;
+        @include responsive(767px)
+        {
+            top: 16px;
+            left: 0px;
+        }
+    }
+    .navToggle--part.bottomCenter {
+        top: 30px;
+        left: 15px; 
+        transition: all 0.2s ease;
+        @include responsive(767px)
+        {
+            top: 16px;
+            left: 8px;
+        }
+    }
+    .navToggle--part.bottomRight {
+        top: 30px;
+        left: 30px;
+        transition: all 0.2s ease;
+        @include responsive(767px)
+        {
+            top: 16px;
+            left: 16px;
+        }
+    }
+}
+.navToggle.active {
+    transform: rotate(135deg);
+    .navToggle--part {
+        border-radius: 1px;
+    }
+    .navToggle--part.topLeft {
+        top: 17px;
+        left: 17px;
+        width: 5px;
+        height: 5px;
+        @include responsive(767px)
+        {
+            top: 10px;
+            left: 10px;
+            width: 2px;
+            height: 2px;
+        }
+    }    
+    .navToggle--part.topCenter {
+        top: 0px;
+        left: 17px;
+        width: 5px;
+        height: 40px;
+        @include responsive(767px)
+        {
+            top: 0px;
+            left: 10px;
+            width: 2px;
+            height: 22px;
+        }
+    }
+    .navToggle--part.topRight {
+        top: 17px;
+        left: 17px;
+        width: 5px;
+        height: 5px;
+        @include responsive(767px)
+        {
+            top: 10px;
+            left: 10px;
+            width: 2px;
+            height: 2px;
+        }
+    } 
+    .navToggle--part.centerLeft {
+        top: 17px;
+        left: 0px;
+        width: 40px;
+        height: 5px;
+        @include responsive(767px)
+        {
+            top: 10px;
+            left: 0px;
+            width: 22px;
+            height: 2px;
+        }
+    }
+    .navToggle--part.centerCenter {
+        top: 17px;
+        left: 17px;
+        width: 5px;
+        height: 5px;
+        @include responsive(767px)
+        {
+            top: 10px;
+            left: 10px;
+            width: 2px;
+            height: 2px;
+        }
+    }
+    .navToggle--part.centerRight {
+        top: 17px;
+        left: 0px;
+        width: 40px;
+        height: 5px;
+        @include responsive(767px)
+        {
+            top: 10px;
+            left: 0px;
+            width: 22px;
+            height: 2px;
+        }
+    }
+    .navToggle--part.bottomLeft {
+        top: 17px;
+        left: 17px;
+        width: 5px;
+        height: 5px;
+        @include responsive(767px)
+        {
+            top: 10px;
+            left: 10px;
+            width: 2px;
+            height: 2px;
+        }
+    }
+    .navToggle--part.bottomCenter {
+        top: 0px;
+        left: 17px;
+        width: 5px;
+        height: 40px;
+        @include responsive(767px)
+        {
+            top: 0px;
+            left: 10px;
+            width: 2px;
+            height: 22px;
+        }
+    }
+    .navToggle--part.bottomRight {
+        top: 17px;
+        left: 17px;
+        width: 5px;
+        height: 5px;
+        @include responsive(767px)
+        {
+            top: 10px;
+            left: 10px;
+            width: 2px;
+            height: 2px;
+        }
+    }
+}

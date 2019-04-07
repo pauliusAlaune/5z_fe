@@ -1,0 +1,23 @@
+@charset "utf-8";
+
+@import "helpers/mixins";
+@import "helpers/reset";
+@import "helpers/fonts";
+@import "helpers/variables";
+
+@import "components/header";
+@import "components/indexPage";
+
+body {
+    font-family: $main;
+    overflow-x: hidden;
+}
+b {
+    font-weight: $fw7;
+}
+i {
+    font-style: $fsI;
+}
+.stopScroll {
+    overflow: hidden;
+}
